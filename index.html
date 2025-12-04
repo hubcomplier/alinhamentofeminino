@@ -11,7 +11,7 @@
     <style>
         /* --- SAGRADO FEMININO LUXO --- */
         :root {
-            --bg: #0a0008; /* Preto com toque rosé */
+            --bg: #0a0008;
             --rose-gold: #E8B4B8;
             --gold: #D4AF37;
             --pearl: #FDF4E3;
@@ -53,7 +53,7 @@
             letter-spacing: 1px;
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         /* --- BOTÃO SAGRADO FEMININO --- */
         .btn-session {
@@ -192,14 +192,23 @@
         .yan-layout {
             display: flex;
             align-items: center;
-            gap: 60px;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* --- MEDIA CONTAINER (IMAGEM + VÍDEO) --- */
+        .media-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .yan-img {
-            width: 350px;
-            height: 450px;
+            width: 280px;
+            height: 380px;
             object-fit: cover;
             filter: sepia(20%) contrast(1.1);
             transition: 0.5s;
@@ -212,6 +221,37 @@
             filter: sepia(0%) contrast(1.1);
             border-color: var(--pearl);
             box-shadow: 0 0 50px rgba(232,180,184,0.4);
+        }
+
+        /* --- VÍDEO ESTILIZADO --- */
+        .yan-video-container {
+            position: relative;
+        }
+
+        .yan-video {
+            width: 280px;
+            height: 380px;
+            object-fit: cover;
+            border: 1px solid var(--rose-gold);
+            border-radius: 200px 200px 0 0;
+            box-shadow: 0 0 30px rgba(232,180,184,0.2);
+            transition: 0.5s;
+            background: #000;
+        }
+
+        .yan-video:hover {
+            border-color: var(--pearl);
+            box-shadow: 0 0 50px rgba(232,180,184,0.4);
+        }
+
+        .video-label {
+            text-align: center;
+            margin-top: 15px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: var(--rose-gold);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
         }
 
         /* --- PRICING FEMININO --- */
@@ -252,10 +292,35 @@
             opacity: 0.4;
         }
 
+        /* --- RESPONSIVO --- */
+        @media (max-width: 992px) {
+            .yan-layout {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .media-container {
+                flex-direction: column;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .yan-layout { text-align: center; }
-            .yan-img { width: 280px; height: 380px; }
+            .yan-img, .yan-video { 
+                width: 250px; 
+                height: 340px; 
+            }
+            .media-container {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .yan-img, .yan-video { 
+                width: 220px; 
+                height: 300px; 
+            }
         }
     </style>
 </head>
@@ -318,9 +383,33 @@
     <!-- SHAKTI AKASHA -->
     <section class="yan-section">
         <div class="container yan-layout">
-         <img src="https://i.ibb.co/r23S97Zw/Whats-App-Image-2025-11-26-at-13-20-51.jpg" alt="Whats-App-Image-2025-11-26-at-13-20-51" border="0">
             
-            <div style="max-width: 500px;">
+            <!-- CONTAINER COM IMAGEM E VÍDEO LADO A LADO -->
+            <div class="media-container">
+                <!-- Imagem do Yan Simon -->
+                <div>
+                    <img class="yan-img" src="https://i.ibb.co/r23S97Zw/Whats-App-Image-2025-11-26-at-13-20-51.jpg" alt="Yan Simon - Guardião do Sagrado Feminino">
+                </div>
+                
+                <!-- Vídeo ao lado -->
+                <div class="yan-video-container">
+                    <video 
+                        class="yan-video" 
+                        autoplay 
+                        loop 
+                        muted 
+                        playsinline
+                        poster="https://i.ibb.co/r23S97Zw/Whats-App-Image-2025-11-26-at-13-20-51.jpg"
+                    >
+                        <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1764808920/generated_video_7_--6KcTO3MLpOaAh_oralei.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+                    <p class="video-label">✦ Mensagem Sagrada ✦</p>
+                </div>
+            </div>
+            
+            <!-- Texto sobre Yan Simon -->
+            <div style="max-width: 450px;">
                 <div class="italic">Olá, Guardiã</div>
                 <h2 style="font-size: 2.2rem; margin-bottom: 20px; margin-top: 10px; font-weight: 400;">Yan Simon</h2>
                 <p style="color: #E8C4C8; margin-bottom: 20px; line-height: 1.8;">
@@ -374,5 +463,4 @@
     </footer>
 
 </body>
-
 </html>
